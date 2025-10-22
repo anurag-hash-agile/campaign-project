@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life of Campings</title>
+
+  <!-- Bootstrap  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div class="d-flex">
+    <nav class="sidebar p-3 d-flex flex-column">
+      <a href="/" class="d-block mb-4 text-white text-center text-decoration-none">
+        <i class="bi bi-shield fs-1" id="icon"> </i>
+      </a>
+     <div class="text-center mb-4 fs-1">
+  <div class="bg-white text-dark rounded px-2 py-1 d-inline-block fw-bold tooltip-container" style="font-size: 14px;" data-tooltip="Alex Lim">
+    AL
+    <span class="tooltip-text">Logo Al</span>
+  </div>
+  </div>
+      <ul class="nav nav-pills flex-column mb-auto text-white">
+      <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-clipboard fs-2"></i>
+      <span class="tooltip-text">Board</span>
+      </a>
+      </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-people fs-2"></i>
+      <span class="tooltip-text">Team</span>
+      </a>
+      </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-trophy fs-2"></i>
+      <span class="tooltip-text">Award</span>
+      </a>
+      </li>
+       <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-clipboard fs-2"></i>
+      <span class="tooltip-text">Idea</span>
+      </a>
+      </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-calendar4 fs-2"></i>
+      <span class="tooltip-text">Dates</span>
+      </a>
+      </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-lightbulb fs-2"></i>
+      <span class="tooltip-text">Idea</span>
+      </a>
+      </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-gift fs-2"></i>
+      <span class="tooltip-text">Surprise</span>
+      </a>
+      </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-puzzle fs-2"></i>
+      <span class="tooltip-text">Puzzle</span>
+      </a>
+      </li>
+      </ul>
+    <div class="mt-5"></div>
+      <div class="mt-auto">
+        <ul class="nav nav-pills flex-column text-white">
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-people fs-2"></i>
+      <span class="tooltip-text">User</span>
+      </a>
+    </li>
+          <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-database fs-2"></i>
+      <span class="tooltip-text">Data</span>
+      </a>
+    </li>
+        <li class="nav-item mb-3 text-center tooltip-container">
+      <a href="#" class="nav-link text-white p-2">
+      <i class="bi bi-gear fs-2"></i>
+      <span class="tooltip-text">settings</span>
+      </a>
+    </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close fs-2 mt-1 me-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body fs-2">
+        <div>
+      <form id="campaignForm">
+      <input type="text" class="form-control mb-2" placeholder="Campaign Name" id="campaignName" required>
+      <input type="text" class="form-control mb-2" placeholder="Campaign Type" id="campaignType" required>
+      <input type="text" class="form-control mb-2" placeholder="Campaign Trigger" id="campaignTrigger" required>
+      <input type="text" class="form-control mb-2" placeholder="Active -- Yes/No" id="yesno">
+      <input type="date" class="form-control mb-2" id="activeFrom">
+      <input type="date" class="form-control mb-2" id="activeTo">
+      <button type="submit" class="btn btn-primary mt-3">Add to Table</button>
+    </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-grow-1">
+      <header class="header bg-light d-flex justify-content-between align-items-center px-3 py-2 position-fixed top-0 end-0">
+        <h1 class="h4 m-0 life">Life of Campings</h1>
+        <div class="dropdown">
+          <button class="Add-camp px-4 p-3 fs-5 me-5 dropbutton btn btn-outline-secondary dropdown-toggle" type="button" id="menu1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            ADD CAMPAIGN
+          </button>
+        </div>
+      </header>
+      <div class="bar"></div>
+      
+      <div class="downbar container-fluid mt-3">
+        <div class="topbar">
+          <button class="filter-btn rounded-1">+ Add Filter</button>
+
+          <div class="right-actions">
+            <div class="searchbox">
+              <i class="fas fa-search"></i>
+             <input type="search" id="searchInput" placeholder="Search in the table..." />
+            </div>
+      <button class="action-btn delete">Delete</button>
+      <div class="popup-container" id="popupContainer">
+      <div class="popup">
+      <p>Do you want to delete?</p>
+      <button id="confirmDelete">Yes</button>
+      <button id="cancelDelete">No</button>
+      </div>
+          </div>
+          </div>
+        </div>
+
+  <table class="table table-bordered align-middle"  id="dataTable">
+  <thead class="table-light">
+    <tr>
+      <th scope="col" class="text-center">
+        <input type="checkbox" class="form-check-input">
+      </th>
+      <th scope="col">Campaign name</th>
+      <th scope="col">Campaign type</th>
+      <th scope="col">Campaign trigger</th>
+      <th scope="col">Active</th>
+      <th scope="col">Active from</th>
+      <th scope="col">Active to</th>
+      <th scope="col" class="text-end"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>1 point for every $1 spent</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>1 Feb 2021 4:20 PM</td>
+  <td>1 March 2023 7:00 PM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>5 stars for a product review</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>12 Jun 2022 9:02 AM</td>
+  <td>12 Jun 2023 9:02 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>50 points for buying ACME product</td>
+  <td>Direct</td>
+  <td>Return transaction</td>
+  <td>Yes</td>
+  <td>1 March 2023 7:00 AM</td>
+  <td>12 Jun 2024 9:02 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>30 points for joining the loyalty program</td>
+  <td>Direct</td>
+  <td>Return transaction</td>
+  <td>Yes</td>
+  <td>31 March 2021 6:38 AM</td>
+  <td>31 March 2022 6:38 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot bg-danger"></span>
+    </div>
+  </td>
+  <td style="color: #999;">2x points when buying on Monday</td>
+  <td>Direct</td>
+  <td style="color: #999;">Purchase transaction</td>
+  <td>No</td>
+  <td>24 Jun 2022 9:22 AM</td>
+  <td>24 Jun 2023 9:22 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>2 points for every $1 spent for Gold</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>12 March 2021 11:00 AM</td>
+  <td>12 March 2022 11:00 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>3 stars for shopping 3 times in the week</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>11 March 2023 7:00 AM</td>
+  <td>11 March 2024 7:00 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>30 points for joining the loyalty program</td>
+  <td>Direct</td>
+  <td>Return transaction</td>
+  <td>Yes</td>
+  <td>17 Feb 2021 4:20 PM</td>
+  <td>17 Feb 2022 4:20 PM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>2 points for every $1 spent for Gold</td>
+  <td>Direct</td>
+  <td>Custom event</td>
+  <td>Yes</td>
+  <td>12 Jun 2022 9:02 AM</td>
+  <td>12 Jun 2023 9:02 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>3 stars for shopping 3 times in the week</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>15 Feb 2021 4:20 PM</td>
+  <td>15 Feb 2022 4:20 PM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>$10 birthday voucher</td>
+  <td>Direct</td>
+  <td>Return transaction</td>
+  <td>Yes</td>
+  <td>14 Feb 2021 4:20 PM</td>
+  <td>14 Feb 2022 4:20 PM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>3 stars for shopping 3 times in the week</td>
+  <td>Direct</td>
+  <td>Return transaction</td>
+  <td>Yes</td>
+  <td>12 Feb 2021 4:20 PM</td>
+  <td>12 Feb 2022 4:20 PM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>2 points for every $1 spent for Gold</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>12 Jun 2022 9:02 AM</td>
+  <td>12 Jun 2023 9:02 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>50 points for buying ACME product</td>
+  <td>Direct</td>
+  <td>Custom event</td>
+  <td>Yes</td>
+  <td>2 Feb 2021 4:20 PM</td>
+  <td>2 Feb 2022 4:20 PM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>$12 birthday voucher</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>12 Jun 2022 9:02 AM</td>
+  <td>12 Jun 2023 9:02 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="text-center">
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <input type="checkbox" class="form-check-input">
+      <span class="status-dot"></span>
+    </div>
+  </td>
+  <td>$12 birthday voucher</td>
+  <td>Direct</td>
+  <td>Purchase transaction</td>
+  <td>Yes</td>
+  <td>12 Jun 2022 9:02 AM</td>
+  <td>12 Jun 2023 9:02 AM</td>
+  <td class="text-end">
+    <div style="position: relative; display: inline-block; z-index: 1;">
+      <button class="btn btn-link btn-sm action-btn" type="button" onclick="showPopup(this)">
+        <i class="bi bi-three-dots-vertical fs-4"></i>
+      </button>
+      <div class="simple-popup" style="position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 200px; margin-top: 5px; display: none;">
+        <p style="margin: 0 0 5px;">Do you want to delete?</p>
+        <button onclick="deleteRow(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #dc3545; color: white;">Yes</button>
+        <button onclick="hidePopup(this)" style="margin: 5px 5px 0 0; padding: 5px 15px; border: none; border-radius: 4px; cursor: pointer; background: #6c757d; color: white;">No</button>
+      </div>
+    </div>
+  </td>
+</tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+</div>
+  
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/script.js"></script>
+</body>
+</html>
